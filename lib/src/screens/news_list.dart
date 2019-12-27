@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class NewsList extends StatelessWidget {
   @override
@@ -7,7 +8,30 @@ class NewsList extends StatelessWidget {
       appBar: AppBar(
         title: Text('Top News'),
       ),
-      body: Text('Show some news here!'),
+      body: buildList(),
+    );
+  }
+
+  Widget buildList() {
+    return ListView.builder(
+      itemCount: 1000,
+      itemBuilder: (context, int index) {
+        return FutureBuilder(
+          future: getFuture(),
+          builder: (context, snapshot) {
+            return snapshot.hasData
+                ? Text('Im visible $index')
+                : Text('I havent fetched data $index');
+          },
+        );
+      },
+    );
+  }
+
+  Future getFuture() {
+    return Future.delayed(
+      Duration(seconds: 2),
+      () => 'hi',
     );
   }
 }
