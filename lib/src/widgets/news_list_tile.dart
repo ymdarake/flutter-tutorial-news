@@ -24,10 +24,17 @@ class NewsListTile extends StatelessWidget {
               return Text('Item still loading $itemId');
             }
 
-            return Text(itemSnapshot.data.title);
+            return buildTile(itemSnapshot.data);
           },
         );
       },
+    );
+  }
+
+  Widget buildTile(ItemModel item) {
+    return ListTile(
+      title: Text(item.title),
+      subtitle: Text('${item.score} votes'),
     );
   }
 }
