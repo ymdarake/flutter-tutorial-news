@@ -8,7 +8,7 @@ class NewsList extends StatelessWidget {
       appBar: AppBar(
         title: Text('Top News'),
       ),
-      body: buildList(),
+      body: Text('Show a list'),
     );
   }
 
@@ -19,9 +19,12 @@ class NewsList extends StatelessWidget {
         return FutureBuilder(
           future: getFuture(),
           builder: (context, snapshot) {
-            return snapshot.hasData
-                ? Text('Im visible $index')
-                : Text('I havent fetched data $index');
+            return Container(
+              height: 80.0,
+              child: snapshot.hasData
+                  ? Text('Im visible $index')
+                  : Text('I havent fetched data $index'),
+            );
           },
         );
       },
