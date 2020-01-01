@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/src/widgets/news_list_tile.dart';
 import 'package:news/src/widgets/refresh.dart';
-import 'dart:async';
 import '../blocs/stories_provider.dart';
 
 class NewsList extends StatelessWidget {
