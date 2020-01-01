@@ -29,7 +29,10 @@ class App extends StatelessWidget {
         // and pass into NewsDetail
         // A fantastic location to do some initialization
         // or data fetching for NewsDetail
-        return NewsDetail();
+        final itemId = int.parse(settings.name.replaceFirst('/', '')):
+        return NewsDetail(
+          itemId: itemId,
+        );
       },
     );
   }
